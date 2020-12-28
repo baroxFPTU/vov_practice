@@ -6,6 +6,7 @@ body{
     height: 100%;
     background-color:#f2f5fe;
     font-family: 'Quicksand', sans-serif;
+    color:#363055!important;
 }
 #container{
     max-width: 1024px;
@@ -18,7 +19,7 @@ body{
     padding: 20px;
     font-size: 1.5em;
     height: 200px;
-    box-shadow: 0px 20px 9px 0px #B4BCC4;
+    box-shadow: -1px 9px 15px 0px #B4BCC4;
 }
 #results .show-results{
     display: flex;
