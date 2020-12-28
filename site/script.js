@@ -96,7 +96,7 @@ var data =[
     countDown = document.querySelector(".countdown"),
     buttonStart = document.querySelectorAll(".btn-start"),
     startRandomPose,timerInterval,countDownToStart,
-    practiceTime = 10000,
+    practiceTime = prompt('Bạn muốn luyện tập trong bao lâu?/n seconds')*1000,
     checkRandom=true;
 
 function startTimer(duration, display) {
