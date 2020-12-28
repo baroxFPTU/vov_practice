@@ -92,11 +92,11 @@ var data =[
         description: "gacso4.jpg"
     },
         ],
-    showResults = document.getElementById("results"),
-    countDown = document.querySelector(".countdown"),
+    showResults = document.querySelector(".results-pose"),
+    countDown = document.querySelector(".results-timers"),
     buttonStart = document.querySelectorAll(".btn-start"),
     startRandomPose,timerInterval,countDownToStart,
-    practiceTime = prompt('Bạn muốn luyện tập trong bao lâu?/n seconds')*1000,
+    practiceTime = prompt('Bạn muốn luyện tập trong bao lâu? \n Example: 10 (seconds)')*1000,
     checkRandom=true;
 
 function startTimer(duration, display) {
@@ -125,7 +125,7 @@ function shuffleArray(array) {
 }
 function convertArray (array,index) {
         renderData = array.map(function(obj) {
-            return `<h2 class = "vov-pose">${obj.namePose}</h2>`;
+            return `<span class = "vov-pose">${obj.namePose}</span>`;
         })
         showResults.innerHTML = renderData[index];
 }

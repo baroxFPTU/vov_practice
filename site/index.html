@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice Vovinam</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 </head>
 <body>
-    <div id="results"></div>
-    <div class="countdown"></div>
-    <button class="btn btn-start" onclick="randomPose()" >Start Practice</button>
-    <button class="btn btn-stop" onclick="stopPractice()">Stop Practice</button>
+    <div id="container">
+        <div id="results">
+            <div class="show-results pose">
+                <span style='margin-right: 3em'>Động tác: </span><div class="results-pose"></div>
+            </div>
+            <div class="show-results timers">
+                <span style='margin-right: 3em'>Thời gian: </span><div class="results-timers"></div>
+            </div>
+        </div>
+        <div class="countdown"></div>
+        <div class="btn-group">
+            <button class="btn btn-start" onclick="randomPose()" >Start Practice</button>
+            <button class="btn btn-stop" onclick="stopPractice()">Stop Practice</button>
+        </div>
+    </div>
     <script src="./script.js"></script>
 </body>
 </html>
