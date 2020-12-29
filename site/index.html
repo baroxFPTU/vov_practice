@@ -8,21 +8,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 </head>
 <body>
-    <div id="container">
-        <div id="results">
-            <div class="show-results pose">
-                <span style='margin-right: 3em;-webkit-text-stroke-width: medium;'>Động tác: </span><div class="results-pose"></div>
+    <div id="page">
+        <div class="container">
+            <div class="main">
+                <div id="results" class="transition">  
+                    <div class="show-results pose">
+                        <span style='margin-right: 3em;-webkit-text-stroke-width: thin;'>Động tác: </span><div class="results-pose"></div>
+                    </div>
+                    <div class="show-results timers">
+                        <span style='margin-right: 3em;-webkit-text-stroke-width: thin;'>Thời gian: </span><div class="results-timers"></div>
+                    </div>
+                    <p class="notice"></p>
+                </div>
+                <div class="input-timepractice">
+                    <input class='time-practice' placeholder = "Thời gian của mỗi động tác..." type="text"/>
+                </div>
+                
+                <div class="countdown"></div>
+                <div class="btn-group">
+                    <button class="btn btn-start" onclick="randomPose()" >Start</button>
+                    <button class="btn btn-stop" onclick="stopPractice()">Stop</button>
+                   
+                </div>
             </div>
-            <div class="show-results timers">
-                <span style='margin-right: 3em;-webkit-text-stroke-width: medium;'>Thời gian: </span><div class="results-timers"></div>
             </div>
-        </div>
-        <div class="countdown"></div>
-        <div class="btn-group">
-            <button class="btn btn-start" onclick="randomPose()" >Start Practice</button>
-            <button class="btn btn-stop" onclick="stopPractice()">Stop Practice</button>
-        </div>
+            
+        
+        <footer id="footer">
+            <div class="copyright left"> @Copyright Phan Quốc Bảo</div> <div class="contact right"><span>Liên hê: Facebook | Instagram | Github</span></div>
+          
+          </footer>
     </div>
+    
     <script src="./script.js"></script>
 </body>
 </html>

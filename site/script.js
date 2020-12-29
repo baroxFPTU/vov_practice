@@ -92,12 +92,27 @@ var data =[
         description: "gacso4.jpg"
     },
         ],
+    parentResult = document.querySelector("#results"),
     showResults = document.querySelector(".results-pose"),
+    showTimer = document.querySelector(".timers"),
     countDown = document.querySelector(".results-timers"),
-    buttonStart = document.querySelectorAll(".btn-start"),
+    buttonStart = document.querySelector(".btn-start"),
     startRandomPose,timerInterval,countDownToStart,
-    practiceTime = prompt('Bạn muốn luyện tập trong bao lâu? \n Example: 10 (seconds)')*1000,
+    inputTime  = document.querySelector('.time-practice'),
+    notices = document.querySelector('.notice'),
     checkRandom=true;
+// hide the results div
+parentResult.classList.add("hidden");
+
+inputTime.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        practiceTime = inputTime.value*1000;
+        console.log(practiceTime);
+        parentResult.classList.remove("hidden");
+        inputTime.classList.add("hidden");
+        notices.innerText = `nhấn "Start" để bắt đầu luyện tập, "Stop" để dừng quá trình. Thời gian của mỗi động tác là ${practiceTime/1000}s`;
+    }
+});
 
 function startTimer(duration, display) {
         var timer = duration, minutes, seconds; 
@@ -149,7 +164,11 @@ function startRandom(){
             lengthArr--;
             console.log(lengthArr);
             if(lengthArr>=0){loopRandom()
-            }else {showResults.innerHTML = `<h1>Bạn đã tập xong!</h1>`;clearTimeout(startRandomPose);}
+            }else {
+                showResults.innerHTML = `<h1 class = 'practice-end'>Bạn đã tập xong!</h1>`;
+                clearTimeout(startRandomPose);
+                showTimer.style.display = 'none';
+            }
          },practiceTime+1000);        
         } else {return;}
     };
@@ -158,11 +177,17 @@ function startRandom(){
 function randomPose (){
     //startRandom();
     //startRandomPose = setInterval(startRandom()(),practiceTime+1000);  
+    let checkProcess = showResults.classList.contains('in-process');
+    if (!checkProcess){
+    showResults.classList.add('in-process');
     checkRandom=true;
     startRandom();
-    startTimer(practiceTime/1000,countDown);       
+    startTimer(practiceTime/1000,countDown);   
+    }
 }
 function stopPractice(){
+    showResults.classList.remove('in-process');
+    buttonStart.style.pointerEvents = "";
     checkRandom = false;
     console.log(checkRandom);
     clearTimeout(startRandomPose);
